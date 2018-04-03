@@ -32,7 +32,7 @@ Route::get('/articles', function () {
     return $articles;
 })->name('article_list');
 
-Route::get('/articles/{index}', function ($index) {
+Route::get('/article/{index}', function ($index) {
     $articles = [
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "Vivamus id massa ac ex rutrum vestibulum.",
@@ -46,7 +46,7 @@ Route::get('/articles/{index}', function ($index) {
     return $articles[$index];
 })->where('index', '[0-9]+');
 
-Route::get('/articles/{year}/{tag}', function ($year, $tag){
+Route::get('/articles/{year?}/{tag?}', function ($year = 2018, $tag){
     $articles = [
     [
         "title" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -64,4 +64,41 @@ Route::get('/articles/{year}/{tag}', function ($year, $tag){
         "tags" => ["Ipsum", "Massa"]
     ],
 ];
+
+$find = [];
+
+// parcourir $articles
+foreach ($articles as $article) {
+   if ($year && $year == $article["year"]) {
+       array_push($find, $article );
+   }
+
+    if($tag) {
+        //parcourir les tags de l'article en cours
+        // comparer chaque tag avec celui passé en paramètre
+        // si ok, ajouter l'article dans $find
+    }
+
+}
+// comparer year de $article avec year de l'URL
+// si c'est ok, mettre l'article dans $find
+
+
+
+/*
+if(!array_key_exists($year)){
+    return redirect()->route('article_year_tag');
+} else {
+    return $year;
+}
+})->name('article_year_tag');
+*/
+/*
+if (!$year) {
+    return $year;
+} else {
+    //echo "error";
+}
+*/
+return $find;
 });
