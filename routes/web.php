@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
+
+    $articles = [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Vivamus id massa ac ex rutrum vestibulum.",
+        "Nam purus justo, porttitor vel urna id, blandit aliquam orci."
+    ];
+    
     return view('welcome');
 });
