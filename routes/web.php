@@ -63,5 +63,5 @@ Route::get('/articles/{year}/{tag}', function ($year, $tag){
         "year" => 2017,
         "tags" => ["Ipsum", "Massa"]
     ],
-]
+];
 });
