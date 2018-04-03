@@ -18,6 +18,10 @@ Route::get('/', function () {
         "Vivamus id massa ac ex rutrum vestibulum.",
         "Nam purus justo, porttitor vel urna id, blandit aliquam orci."
     ];
-    
+
     return view('welcome');
+});
+
+Route::get('/article/{index}', function () {
+     return view('welcome');
 });
