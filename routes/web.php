@@ -11,6 +11,7 @@
 |
 */
 
+Route::resources('article', 'ArticleController');
 Route::get('/', function () {
 
     $articles = [
