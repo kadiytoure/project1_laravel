@@ -46,7 +46,7 @@ Route::get('/article/{index}', function ($index) {
     return $articles[$index];
 })->where('index', '[0-9]+');
 
-Route::get('/articles/{year?}/{tag?}', function ($year = 2018, $tag){
+Route::get('/articles/{year?}/{tag?}', function ($year = 2018, $tag = 'lorem'){
     $articles = [
     [
         "title" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -73,13 +73,21 @@ foreach ($articles as $article) {
        array_push($find, $article );
    }
 
-    if($tag) {
-        //parcourir les tags de l'article en cours
+    if(isset($tag)) {
+        //parcourir les tags de l'article en cour
+        foreach ($article['tags'] as $tagFromArticle) {
+            if ($tag == $tagFromArticle) {
+                array_push($find, $article);
+            }
+        }
         // comparer chaque tag avec celui passé en paramètre
         // si ok, ajouter l'article dans $find
     }
 
 }
+
+// supprimer les doublons de $find
+
 // comparer year de $article avec year de l'URL
 // si c'est ok, mettre l'article dans $find
 
