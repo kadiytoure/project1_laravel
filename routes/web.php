@@ -19,7 +19,7 @@ Route::get('/', function () {
         "Nam purus justo, porttitor vel urna id, blandit aliquam orci."
     ];
 
-    return view('welcome');
+    return view('article.child');
 });
 
 Route::get('/articles', function () {
