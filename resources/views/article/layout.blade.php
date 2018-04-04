@@ -2,6 +2,9 @@
  ?>
 <html>
     <head>
+         <link rel="stylesheet" href="css/app.css" />
+         <link rel="stylesheet" href="css/clean-blog.css"/>
+         <link rel="stylesheet" href="css/clean-blog.min.css" />
         <title>Blog - @yield('title')</title>
     </head>
     <body>
