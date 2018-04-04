@@ -2,18 +2,26 @@
  ?>
 <html>
     <head>
-         <link rel="stylesheet" href="css/app.css" />
-         <link rel="stylesheet" href="css/clean-blog.css"/>
-         <link rel="stylesheet" href="css/clean-blog.min.css" />
+        <meta charset="utf-8">
+        <meta name="description" content= "">
+        <meta name="author" content="News">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}"/>
+        <link rel="stylesheet" href="{{asset('css/clean-blog.css')}}"/>
+        
         <title>Blog - @yield('title')</title>
-    </head>
+         </head>
     <body>
-        @section('sidebar')
-            This is the master sidebar.
-        @show
-
+        @include('article.header')
+        
         <div class="container">
-            @yield('content')
+            <div class="row">
+                @yield('content')
+            </div>
         </div>
+
+        <hr>
+        @include("article.footer")
+
+        <script src="{{ asset('js/app.js') }}" crossorigin="anonymous"></script>
     </body>
 </html>
