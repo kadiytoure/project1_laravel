@@ -11,7 +11,8 @@
 |
 */
 
-Route::resources('article', 'ArticleController');
+Route::resource('article', 'ArticleController');
+/*
 Route::get('/', function () {
 
     $articles = [
@@ -95,3 +96,4 @@ foreach ($articles as $article) {
 
 return $find;
 });
+*/
