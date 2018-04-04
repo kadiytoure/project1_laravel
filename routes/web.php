@@ -68,6 +68,8 @@ Route::get('/articles/{year?}/{tag?}', function ($year = 2018, $tag = 'lorem'){
 $find = [];
 
 // parcourir $articles
+// comparer year de $article avec year de l'URL
+// si c'est ok, mettre l'article dans $find
 foreach ($articles as $article) {
    if ($year && $year == $article["year"]) {
        array_push($find, $article );
@@ -75,38 +77,20 @@ foreach ($articles as $article) {
 
     if(isset($tag)) {
         //parcourir les tags de l'article en cour
+        // comparer chaque tag avec celui passé en paramètre
+        // si ok, ajouter l'article dans $find
         foreach ($article['tags'] as $tagFromArticle) {
             if ($tag == $tagFromArticle) {
                 array_push($find, $article);
             }
         }
-        // comparer chaque tag avec celui passé en paramètre
-        // si ok, ajouter l'article dans $find
+       
     }
 
 }
 
 // supprimer les doublons de $find
 
-// comparer year de $article avec year de l'URL
-// si c'est ok, mettre l'article dans $find
 
-
-
-/*
-if(!array_key_exists($year)){
-    return redirect()->route('article_year_tag');
-} else {
-    return $year;
-}
-})->name('article_year_tag');
-*/
-/*
-if (!$year) {
-    return $year;
-} else {
-    //echo "error";
-}
-*/
 return $find;
 });
