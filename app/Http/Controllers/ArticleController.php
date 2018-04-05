@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -13,10 +14,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //display list of articles;
-        $articles = DB::table('articles');
+        $articles = DB::table('articles')->get();
 
-        dd($articles);
+        // ordonner les articles par date
+        // récupérer que les articles dont is_enabled = 1
+
+        
+        return view('article.article', ['articles' => $articles]);
     }
 
     /**
