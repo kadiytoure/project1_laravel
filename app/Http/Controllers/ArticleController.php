@@ -13,7 +13,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        //display list of articles;
+        $articles = DB::table('articles');
+
+        dd($articles);
     }
 
     /**
