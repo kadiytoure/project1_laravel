@@ -33,7 +33,12 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        // Afficher un formulaire pour créer un article
+        // input type text -> title
+        // textarea -> content
+        // checkbox -> is_enabled
+
+        return view('articles.article-create');
     }
 
     /**
@@ -55,7 +60,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+     $article = DB::table('articles')->find($id);
+
+     return view("article.article-show")->with("article", $article);
     }
 
     /**
