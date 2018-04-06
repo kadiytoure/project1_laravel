@@ -14,7 +14,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = DB::table('articles')->get();
+        $articles = DB::table('articles')
+            ->latest()
+            ->where("is_enabled", 1)
+            ->get();
 
         // ordonner les articles par date
         // récupérer que les articles dont is_enabled = 1
