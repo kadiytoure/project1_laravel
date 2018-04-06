@@ -33,11 +33,6 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        // Afficher un formulaire pour créer un article
-        // input type text -> title (template)
-        // textarea -> content (template)
-        // checkbox -> is_enabled (template)
-
         return view('article.article-create');
     }
 
@@ -49,7 +44,11 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Valider le formulaire
+
+        // Créer le nouvel article
+
+        // rediriger vers l'article nouvellement créé
     }
 
     /**

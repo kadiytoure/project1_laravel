@@ -1,11 +1,15 @@
 @extends('article.layout')
 
 @section('content')
-<form class="col-md-6 offset -md-2 mt-3">
-<label for="title">Title</label>
+<form method="POST" action="/article" class="col-md-6 offset -md-2 mt-3">
+{{ csrf_field() }}
+<label for="title">Title :</label>
 <input type="text" name="title" class="form-control"/>
-<textarea rows="4" cols="48"></textarea>
-<input type="checkbox" name="enabled" value="available" >Enabled<br>
-<input type="checkbox" name="not_enabled" value="not_available" >Not_enabled<br>
+
+<label for="title">Contenu :</label>
+<textarea name="content" rows="4" cols="48"></textarea>
+<input type="checkbox" name="is_enabled" value="available" >Enabled<br>
+
+<input type="submit" value="Valider" >
 </form>
 @endsection
