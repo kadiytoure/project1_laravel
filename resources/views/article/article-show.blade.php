@@ -5,5 +5,5 @@
     <p>
         {{ $article->content }}
     </p>
-    <button type="button" onclick="{{ Redirect::to('Controllers.ArticleController')}}">Validate</button>
+    <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-default" type="button" class="btn btn-default" >Button</a>
 @endsection
