@@ -8,7 +8,8 @@
 
 <label for="title">Contenu :</label>
 <textarea name="content" rows="4" cols="48"></textarea>
-<input type="checkbox" name="is_enabled" value="available" >Enabled<br>
+
+<input type="checkbox" name="is_enabled" value="1" >Enabled<br>
 
 <input type="submit" value="Valider" >
 </form>

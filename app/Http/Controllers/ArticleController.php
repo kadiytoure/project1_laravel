@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        
         $articles = DB::table('articles')
             ->latest()
             ->where("is_enabled", 1)
@@ -44,11 +46,24 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        
         // Valider le formulaire
-
+        $valid_form = $request->validate([
+             'title' => 'required|unique:articles|max:301',
+             'content' => 'required',
+        ]);
         // Créer le nouvel article
+        $new_post = Article::create($request->all());
 
-        // rediriger vers l'article nouvellement créé
+    // is_enabled -> mettre une valeur par défaut
+    'is_enabled' == true;
+    // s'il y a des erreurs, afficher le formulaire pré-rempli 
+    // avec la liste des erreurs
+
+    // si tout est ok, rediriger vers la page de l'article nouvellement créé.
+
+   
+       
     }
 
     /**
