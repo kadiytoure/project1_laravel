@@ -87,7 +87,11 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        // charger l'article avec l'ID passé en paramètre
+
+        // afficher un formulaire avec les données pré remplies
+
+        
     }
 
     /**
@@ -100,6 +104,8 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        // mettre à jour en base de donnée à la validation du formulaire
     }
 
     /**
