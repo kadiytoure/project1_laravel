@@ -50,21 +50,21 @@ class ArticleController extends Controller
         // Valider le formulaire
         $valid_form = $request->validate([
              'title' => 'required|unique:articles|max:301',
-             'content' => 'required',
+             'content' => 'required|max:400',
         ]);
         // Créer le nouvel article
-        $new_post = Article::create($request->all());
+        $article = Article::create($request->all());
 
-    // is_enabled -> mettre une valeur par défaut
-    'is_enabled' == true;
+    // is_enabled -> mettre une valeur par défaut (cf database, migrations)
     // s'il y a des erreurs, afficher le formulaire pré-rempli 
-    // avec la liste des erreurs
+    // avec la liste des erreurs(cf view)
+        // redirect
+        return redirect()->route('article.show', ['id' => $article->id]);
+    }
 
     // si tout est ok, rediriger vers la page de l'article nouvellement créé.
 
-   
-       
-    }
+
 
     /**
      * Display the specified resource.

@@ -1,10 +1,20 @@
 @extends('article.layout')
 
 @section('content')
+<h1>Create Post</h1>
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
 <form method="POST" action="/article" class="col-md-6 offset -md-2 mt-3">
 {{ csrf_field() }}
 <label for="title">Title :</label>
-<input type="text" name="title" class="form-control"/>
+<input type="text" name="title" class="form-control" value="" />
 
 <label for="title">Contenu :</label>
 <textarea name="content" rows="4" cols="48"></textarea>
