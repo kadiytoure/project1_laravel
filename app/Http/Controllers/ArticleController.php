@@ -103,7 +103,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
         // mettre à jour en base de donnée à la validation du formulaire
         /*
@@ -113,12 +113,22 @@ class ArticleController extends Controller
                  ->withInput();
     }
     */
+    /*
     $second_valid = $request->validate([
         'title' => 'required|unique:articles|max:301',
         'content' => 'required|max:400',
     ]);
 
     return redirect()->route('article.edit', ['id' =>$article->id]);
+    */
+    Validator::make($request->all(), [
+        'title' => 'required|unique:articles|max:301',
+        'content' => 'required|max:400',
+    ])->validate();
+
+    // update l'article
+
+    // redirect
     }
 
     /**
