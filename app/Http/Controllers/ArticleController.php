@@ -90,7 +90,9 @@ class ArticleController extends Controller
         // charger l'article avec l'ID passé en paramètre
 
         // afficher un formulaire avec les données pré remplies
+        $article = DB::table('articles')->find($id);
 
+        return view("article.article")->with("article", $article);
         
     }
 
@@ -103,9 +105,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-
         // mettre à jour en base de donnée à la validation du formulaire
+    if ($valid_form->fails()) {
+        return redirect('article.article-show')
+                 ->withErrors($valid_form)
+                 ->withInput();
+    }
     }
 
     /**
