@@ -5,5 +5,5 @@
     <p>
         {{ $article->content }}
     </p>
-    <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-default" type="button" class="btn btn-default" >Button</a>
+    <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="btn btn-default" type="button" class="btn btn-default" >Modifier</a>
 @endsection

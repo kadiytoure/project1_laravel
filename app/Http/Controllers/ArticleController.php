@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -127,8 +128,10 @@ class ArticleController extends Controller
     ])->validate();
 
     // update l'article
+    $article->update($request->all());
 
     // redirect
+    return redirect()->route('article.show', ['id' =>$article->id]);
     }
 
     /**
@@ -139,6 +142,9 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $article = DB::table('articles')->find($id);
+        $article->delete();
+        
     }
 }
