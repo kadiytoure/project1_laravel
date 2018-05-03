@@ -11,15 +11,16 @@
 </ul>
 </div>
 @endif
-<form method="POST" action="/update" class="col-md-6 offset -md-2 mt-3">
+<form method="POST" action="{{ route('article.update', ['id' => $article->id])}}" class="col-md-6 offset -md-2 mt-3">
+{{ method_field('PUT') }}
 {{ csrf_field() }}
-<input type="text" name="title" class="form-control" value="{{ old('title') }}" />
+<input type="text" name="title" class="form-control" value="{{ $article->title }}" />
 
 <label for="title">Contenu :</label>
-<textarea name="content" rows="4" cols="48">{{ old('content') }}</textarea>
+<textarea name="content" rows="4" cols="48">{{ $article->content }}</textarea>
 
-<input type="checkbox" name="is_enabled" value="1" >Enabled<br>
+<input type="checkbox" name="is_enabled" value="{{ $article->is_enabled }}" >Enabled<br>
 
-<input type="submit" value="Valider" >
+<input type="submit" value="Edit" >
 </form>
 @endsection

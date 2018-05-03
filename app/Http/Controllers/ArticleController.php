@@ -92,7 +92,7 @@ class ArticleController extends Controller
         // afficher un formulaire avec les données pré remplies
         $article = DB::table('articles')->find($id);
 
-        return view("article.article-edit")->with($article);
+        return view("article.article-edit")->with("article", $article);
         
     }
 
@@ -117,6 +117,8 @@ class ArticleController extends Controller
         'title' => 'required|unique:articles|max:301',
         'content' => 'required|max:400',
     ]);
+
+    return redirect()->route('article.edit', ['id' =>$article->id]);
     }
 
     /**
