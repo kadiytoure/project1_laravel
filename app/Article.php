@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     /**
-     * The attributes that are mass assignable.
+     * Get the comments for the Article.
      *
      * @var array
      */
-    protected $fillable = ['title', 'content', 'is_enabled'];
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
