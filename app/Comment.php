@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Comment;
 
 class Comment extends Model
 {
@@ -14,6 +15,8 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Article');
     }
+    
 
+    
 
 }

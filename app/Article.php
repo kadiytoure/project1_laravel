@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Article;
 
 class Article extends Model
 {
@@ -15,4 +16,6 @@ class Article extends Model
     {
         return $this->hasMany('App\Comment');
     }
+
+
 }
