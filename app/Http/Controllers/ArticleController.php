@@ -106,22 +106,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        // mettre à jour en base de donnée à la validation du formulaire
-        /*
-    if ($valid_form->fails()) {
-        return redirect('article.article-show')
-                 ->withErrors($valid_form)
-                 ->withInput();
-    }
-    */
-    /*
-    $second_valid = $request->validate([
-        'title' => 'required|unique:articles|max:301',
-        'content' => 'required|max:400',
-    ]);
 
-    return redirect()->route('article.edit', ['id' =>$article->id]);
-    */
     Validator::make($request->all(), [
         'title' => 'required|unique:articles|max:301',
         'content' => 'required|max:400',
@@ -141,10 +126,11 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        
-        $article = DB::table('articles')->find($id);
+    {    
+        $article = Article::find($id);
         $article->delete();
-        
+        return redirect()->route('article.index', ['id' =>$article->id])->with('success', 'Article deleted successfully');
+      
+
     }
 }
