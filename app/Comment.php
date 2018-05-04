@@ -15,14 +15,5 @@ class Comment extends Model
         return $this->belongsTo('App\Article');
     }
 
-class Article extends Model
-{
-    /**
-    * Get the comments for the Article.
-    */
-    public function comments()
-    {
-        return $this->hasMany('App\Comment');
-    }
-}
+
 }
